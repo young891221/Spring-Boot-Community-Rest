@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://172.16.135.15:3306/autoconfiguration
+    username: mns
+    password: dltmxmdlsxjspt
+    driver-class-name: com.mysql.jdbc.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+  data:
+    rest:
+      base-path: /api
+      default-page-size: 10
+      max-page-size: 10
+server:
+  port: 8081
