@@ -12,6 +12,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.CorsUtils;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +46,19 @@ public class CommunityRestApplication {
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
+			CorsConfiguration configuration = new CorsConfiguration();
+			configuration.addAllowedOrigin("*");
+			configuration.addAllowedMethod("*");
+			configuration.addAllowedHeader("*");
+			UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+			source.registerCorsConfiguration("/**", configuration);
+
 			http.httpBasic()
 					.and().authorizeRequests()
-					.antMatchers(HttpMethod.POST, "/books").hasRole("ADMIN")
+					//.antMatchers(HttpMethod.POST, "/books").hasRole("ADMIN")
 					.antMatchers(HttpMethod.PUT, "/books/**").hasRole("ADMIN")
 					.antMatchers(HttpMethod.PATCH, "/books/**").hasRole("ADMIN")
+					.and().cors().configurationSource(source)
 					.and().csrf().disable();
 		}
 	}
