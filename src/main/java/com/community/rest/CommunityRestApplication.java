@@ -57,9 +57,8 @@ public class CommunityRestApplication {
 
 			http.httpBasic()
 					.and().authorizeRequests()
-					//.antMatchers(HttpMethod.POST, "/books").hasRole("ADMIN")
-					.antMatchers(HttpMethod.PUT, "/books/**").hasRole("ADMIN")
-					.antMatchers(HttpMethod.PATCH, "/books/**").hasRole("ADMIN")
+					//.antMatchers(HttpMethod.POST, "/Boards/**").hasRole("ADMIN")
+					.anyRequest().permitAll()
 					.and().cors().configurationSource(source)
 					.and().csrf().disable();
 		}
