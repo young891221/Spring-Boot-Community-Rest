@@ -66,4 +66,12 @@ public class Board implements Serializable {
         this.updatedDate = updatedDate;
         this.user = user;
     }
+
+    public void setCreatedDateNow() {
+        this.createdDate = LocalDateTime.now();
+    }
+
+    public void setUpdatedDateNow() {
+        this.updatedDate = LocalDateTime.now();
+    }
 }
