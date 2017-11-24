@@ -4,10 +4,8 @@ spring:
     username:
     password:
     driver-class-name: com.mysql.jdbc.Driver
-  data:
-    rest:
-      base-path: /api
-      default-page-size: 10
-      max-page-size: 10
+  jackson:
+    serialization:
+      fail-on-empty-beans: false #빈값은 직렬화하지 않음
 server:
   port: 8081

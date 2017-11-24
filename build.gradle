@@ -10,30 +10,32 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
 
-group = 'com.rest'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+    group = 'com.rest'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
 
-repositories {
-    mavenCentral()
-}
+    repositories {
+        mavenCentral()
+    }
 
-ext['hibernate.version'] = '5.2.10.Final'
+    ext['hibernate.version'] = '5.2.10.Final'
 
-dependencies {
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('org.springframework.boot:spring-boot-starter-security')
-    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile('org.springframework.boot:spring-boot-starter-security')
+        compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
 
-    runtime('org.springframework.boot:spring-boot-devtools')
-    runtime('mysql:mysql-connector-java')
-    compileOnly('org.projectlombok:lombok')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile('org.springframework.security:spring-security-test')
+        runtime('org.springframework.boot:spring-boot-devtools')
+        runtime('mysql:mysql-connector-java')
+        compileOnly('org.projectlombok:lombok')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+        testCompile('org.springframework.security:spring-security-test')
+    }
 }
 
 project(':data-rest') {
@@ -49,5 +51,6 @@ project(':rest-web') {
         compile('org.springframework.boot:spring-boot-starter-web') {
             exclude module: "jackson-databind"
         }
+        compile('org.springframework.boot:spring-boot-starter-hateoas')
     }
 }
