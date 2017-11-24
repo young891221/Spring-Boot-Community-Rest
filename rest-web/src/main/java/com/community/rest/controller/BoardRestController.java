@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
@@ -50,7 +48,7 @@ public class BoardRestController {
         //valid 체크
         board.setCreatedDateNow();
         boardRepository.save(board);
-        return new ResponseEntity<>("{}", new HttpHeaders(), HttpStatus.CREATED);
+        return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
 
     @PutMapping("/{idx}")
@@ -59,13 +57,13 @@ public class BoardRestController {
         Board persistBoard = boardRepository.getOne(idx) ;
         persistBoard.update(board);
         boardRepository.save(persistBoard);
-        return new ResponseEntity<>("{}", new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 
     @DeleteMapping("/{idx}")
     public ResponseEntity<?> deleteBoard(@PathVariable("idx")Long idx) {
         //valid 체크
         boardRepository.delete(idx);
-        return new ResponseEntity<>("{}", new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 }
