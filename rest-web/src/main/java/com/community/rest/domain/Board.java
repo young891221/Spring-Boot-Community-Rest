@@ -54,7 +54,7 @@ public class Board implements Serializable {
     @Column
     private LocalDateTime updatedDate;
 
-    @OneToOne(fetch= FetchType.LAZY)
+    @OneToOne
     private User user;
 
     @Builder
