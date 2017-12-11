@@ -33,7 +33,8 @@ public class BoardRestController {
         return ResponseEntity.ok(resources);
     }
 
-    @GetMapping("/boards/search/test")
+    //오버라이드
+    @GetMapping("/boards")
     public @ResponseBody Resources<Board> basicTestReturnBoard() {
         List<Board> storeList = boardRepository.findAll();
 
