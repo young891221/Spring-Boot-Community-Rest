@@ -2,6 +2,7 @@ package com.community.rest.domain;
 
 
 import com.community.rest.domain.enums.SocialType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -36,6 +37,7 @@ public class User implements Serializable {
     private String name;
 
     @Column
+    @JsonIgnore
     private String password;
 
     @Column

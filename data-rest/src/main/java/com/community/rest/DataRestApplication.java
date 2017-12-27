@@ -46,9 +46,9 @@ public class DataRestApplication {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			CorsConfiguration configuration = new CorsConfiguration();
-			configuration.addAllowedOrigin("*");
-			configuration.addAllowedMethod("*");
-			configuration.addAllowedHeader("*");
+			configuration.addAllowedOrigin(CorsConfiguration.ALL);
+			configuration.addAllowedMethod(CorsConfiguration.ALL);
+			configuration.addAllowedHeader(CorsConfiguration.ALL);
 			UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 			source.registerCorsConfiguration("/**", configuration);
 
@@ -65,4 +65,14 @@ public class DataRestApplication {
 	BoardEventHandler boardEventHandler() {
 		return new BoardEventHandler();
 	}
+
+	/*@Configuration
+	public class CustomizedRestMvcConfiguration extends RepositoryRestConfigurerAdapter {
+
+		@Override
+		public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+			config.getProjectionConfiguration().addProjection(UserOnlyContainName.class);
+		}
+	}*/
+
 }
