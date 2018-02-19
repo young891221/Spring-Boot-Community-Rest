@@ -1,11 +1,11 @@
 spring:
   datasource:
-    url: jdbc:mysql://
-    username:
-    password:
+    url: jdbc:mysql://172.16.135.15:3306/autoconfiguration
+    username: mns
+    password: dltmxmdlsxjspt
     driver-class-name: com.mysql.jdbc.Driver
-  jackson:
-    serialization:
-      fail-on-empty-beans: false #빈값은 직렬화하지 않음
+#  jackson:
+#    serialization:
+#      fail-on-empty-beans: false #빈값은 직렬화하지 않음
 server:
   port: 8081

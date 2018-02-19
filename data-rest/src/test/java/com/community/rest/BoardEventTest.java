@@ -18,13 +18,13 @@ public class BoardEventTest {
     private TestRestTemplate testRestTemplate = new TestRestTemplate("havi", "test");
 
     @Test
-    public void 저장할때_생성날짜가_서버시간으로_생성되는가() {
+    public void 저장할때_이벤트가_적용되어_생성날짜가_생성되는가() {
         Board createdBoard = createBoard();
         assertNotNull(createdBoard.getCreatedDate());
     }
 
     @Test
-    public void 수정할때_수정날짜가_서버시간으로_생성되는가() {
+    public void 수정할때_이벤트가_적용되어_수정날짜가_생성되는가() {
         Board createdBoard = createBoard();
         Board updatedBoard = updateBoard(createdBoard);
         assertNotNull(updatedBoard.getUpdatedDate());
