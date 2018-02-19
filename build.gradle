@@ -33,6 +33,7 @@ subprojects {
 
         runtime('org.springframework.boot:spring-boot-devtools')
         runtime('mysql:mysql-connector-java')
+        runtime('com.h2database:h2')
         compileOnly('org.projectlombok:lombok')
         testCompile('org.springframework.boot:spring-boot-starter-test')
         testCompile('org.springframework.security:spring-security-test')
