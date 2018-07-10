@@ -33,8 +33,8 @@ public class DataRestApplication {
 
 		@Bean
 		InMemoryUserDetailsManager userDetailsManager() {
-			User.UserBuilder commonUser = User.withUsername("commonUser").password("common").roles("USER");
-			User.UserBuilder havi = User.withUsername("havi").password("test").roles("USER", "ADMIN");
+			User.UserBuilder commonUser = User.withUsername("commonUser").password("{noop}common").roles("USER");
+			User.UserBuilder havi = User.withUsername("havi").password("{noop}test").roles("USER", "ADMIN");
 
 			List<UserDetails> userDetailsList = new ArrayList<>();
 			userDetailsList.add(commonUser.build());

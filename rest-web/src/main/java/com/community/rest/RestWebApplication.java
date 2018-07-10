@@ -36,8 +36,8 @@ public class RestWebApplication {
 			User.UserBuilder havi = User.withUsername("havi");
 
 			List<UserDetails> userDetailsList = new ArrayList<>();
-			userDetailsList.add(commonUser.password("common").roles("USER").build());
-			userDetailsList.add(havi.password("test").roles("USER", "ADMIN").build());
+			userDetailsList.add(commonUser.password("{noop}common").roles("USER").build());
+			userDetailsList.add(havi.password("{noop}test").roles("USER", "ADMIN").build());
 
 			return new InMemoryUserDetailsManager(userDetailsList);
 		}

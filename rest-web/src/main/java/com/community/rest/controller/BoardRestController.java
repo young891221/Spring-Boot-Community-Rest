@@ -62,7 +62,7 @@ public class BoardRestController {
     @DeleteMapping("/{idx}")
     public ResponseEntity<?> deleteBoard(@PathVariable("idx")Long idx) {
         //valid 체크
-        boardRepository.delete(idx);
+        boardRepository.deleteById(idx);
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 }
