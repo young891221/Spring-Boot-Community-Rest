@@ -55,6 +55,7 @@ public class Board implements Serializable {
     private LocalDateTime updatedDate;
 
     @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName="idx")
     private User user;
 
     @Builder
